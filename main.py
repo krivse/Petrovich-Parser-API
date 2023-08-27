@@ -1,6 +1,6 @@
 import logging
 import os
-import pickle
+
 from typing import Optional
 
 from selenium import webdriver
@@ -38,60 +38,8 @@ def options_driver():
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--disable-dev-shm-usage')
-    # chrome_options.add_argument('--disable-audio')
-    # chrome_options.add_argument('--disable-3d-apis')
-    # chrome_options.add_argument('--disable-bookmark-autocomplete-provider')
-    # chrome_options.add_argument('--disable-bundled-ppapi-flash')
-    # chrome_options.add_argument('--disable-cloud-policy-service')
-    # chrome_options.add_argument('--disable-desktop-notifications')
-    # chrome_options.add_argument('--disable-extensions')
-    # chrome_options.add_argument('--disable-flash-stage3d')
-    # chrome_options.add_argument('--disable-full-history-sync')
-    # chrome_options.add_argument('--disable-improved-download-protection')
-    # chrome_options.add_argument('--disable-java')
-    # chrome_options.add_argument('--disable-media-history')
-    # chrome_options.add_argument('--disable-media-source')
-    # chrome_options.add_argument('--disable-ntp-other-sessions-menu')
-    # chrome_options.add_argument('--disable-pepper-3d')
-    # chrome_options.add_argument('--disable-plugins')
-    # chrome_options.add_argument('--disable-popup-blocking')
-    # chrome_options.add_argument('--disable-print-preview')
-    # chrome_options.add_argument('--disable-restore-background-contents')
-    # chrome_options.add_argument('--disable-scripted-print-throttling')
-    # chrome_options.add_argument('--disable-smooth-scrolling')
-    # chrome_options.add_argument('--disable-speech-input')
-    # chrome_options.add_argument('--disable-web-media-player-ms')
-    # chrome_options.add_argument('--disable-web-security')
-    # chrome_options.add_argument('--disable-webaudio')
-    # chrome_options.add_argument('--disable-webgl')
-    # chrome_options.add_argument('--disable-xss-auditor')
     chrome_options.add_argument('--incognito')
-    #
-    # chrome_options.add_argument("--disable-renderer-backgrounding")
-    # chrome_options.add_argument("--disable-background-timer-throttling")
-    # chrome_options.add_argument("--disable-backgrounding-occluded-windows")
-    # chrome_options.add_argument("--disable-client-side-phishing-detection")
-    # chrome_options.add_argument("--disable-crash-reporter")
-    # chrome_options.add_argument("--disable-oopr-debug-crash-dump")
-    # chrome_options.add_argument("--no-crash-upload")
-    # chrome_options.add_argument("--disable-low-res-tiling")
-    # chrome_options.add_argument("--silent")
-    #
-    # chrome_options.add_argument("--disable-background-networking")
-    # chrome_options.add_argument("--disable-default-apps")
-    # chrome_options.add_argument("--disable-hang-monitor")
-    # chrome_options.add_argument("--disable-prompt-on-repost")
-    # chrome_options.add_argument("--disable-sync")
-    # chrome_options.add_argument("--disable-web-resources")
-    # chrome_options.add_argument("--enable-logging")
-    # chrome_options.add_argument("--force-fieldtrials=SiteIsolationExtensions/Control")
-    # chrome_options.add_argument("--log-level=0")
-    # chrome_options.add_argument("--metrics-recording-only")
-    # chrome_options.add_argument("--no-first-run")
-    # chrome_options.add_argument("--password-store=basic")
-    # chrome_options.add_argument("--test-type=webdriver")
-    # chrome_options.add_argument("--use-mock-keychain")
-    # chrome_options.page_load_strategy = 'eager'
+    chrome_options.page_load_strategy = 'eager'
 
     # установка user-agent
     chrome_options.add_argument(
