@@ -230,19 +230,16 @@ def collecting_additional_information(items, browsers, wait) -> None:
 
             description = soup.find('div', class_='product-body').find('p', class_='product-description-text').text
             characteristic = soup.find('ul', class_='product-properties-list')
-            title = characteristic.find_all('li', class_='data-item')[1]
+            title = characteristic.find_all('li', class_='data-item')[1].find_next(name='span').text
             brand = characteristic.find_all('li', class_='data-item')[2]
             img = soup.find('img', attrs='swiper-lazy').get('srcset').split(', ')[1].replace(' 2x', '')
 
             products[i]['description'] = description
-            for t in title:
-                if t.text != 'Тип товара':
-                    products[i]['type'] = t.text
-            for b in brand:
-                if b.text != 'Бренд' and 'Бренд' in brand:
-                    products[i]['brand'] = b.text
-                elif 'Бренд' not in brand:
-                    products[i]['brand'] = ''
+            products[i]['type'] = title
+            if 'Бренд' == brand.find_next(name='div').text:
+                products[i]['brand'] = brand.find_next(name='span').text
+            elif 'Бренд' != brand.find_next(name='div').text:
+                products[i]['brand'] = ''
             products[i]['img'] = img
 
             # browsers.get(url)
